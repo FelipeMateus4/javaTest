@@ -78,7 +78,7 @@
                 <user>postgres</user>
                 <password>felipeneto1234</password>
                 <locations>
-                    <location>classpath:db/migrations</location> <!-- Onde os arquivos de migração serão armazenados -->
+                    <location>classpath:db/migration</location> <!-- Onde os arquivos de migração serão armazenados -->
                 </locations>
             </configuration>
         </plugin>
@@ -122,6 +122,21 @@
     <dependency>
         <groupId>org.flywaydb</groupId>
         <artifactId>flyway-core</artifactId>
+        <version>10.4.1</version>
+    </dependency>
+
+        <!-- Dependência do Hibernate para suporte ao JPA -->
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-core</artifactId>
+        <version>5.6.15.Final</version> <!-- Verifique a versão mais recente -->
+    </dependency>
+
+    <!-- Dependência do JPA -->
+    <dependency>
+        <groupId>javax.persistence</groupId>
+        <artifactId>javax.persistence-api</artifactId>
+        <version>2.2</version> <!-- Versão do JPA API -->
     </dependency>
 </dependencies>
 
