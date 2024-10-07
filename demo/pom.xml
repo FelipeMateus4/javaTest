@@ -44,9 +44,9 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
 <build>
     <plugins>
+        <!-- Plugin Spotless -->
         <plugin>
             <groupId>com.diffplug.spotless</groupId>
             <artifactId>spotless-maven-plugin</artifactId>
@@ -55,6 +55,31 @@
                 <java>
                     <eclipse />
                 </java>
+            </configuration>
+        </plugin>
+
+        <!-- Plugin Liquibase -->
+        <plugin>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-maven-plugin</artifactId>
+            <version>4.19.0</version> <!-- Verifique a versão mais recente -->
+            <configuration>
+                <propertyFile>src/main/resources/liquibase.properties</propertyFile>
+            </configuration>
+        </plugin>
+
+        <!-- Plugin Flyway -->
+        <plugin>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-maven-plugin</artifactId>
+            <version>10.10.0</version> <!-- Verifique se está usando a versão mais recente -->
+            <configuration>
+                <url>jdbc:postgresql://localhost:5432/teste</url>
+                <user>postgres</user>
+                <password>felipeneto1234</password>
+                <locations>
+                    <location>classpath:db/migrations</location> <!-- Onde os arquivos de migração serão armazenados -->
+                </locations>
             </configuration>
         </plugin>
     </plugins>
@@ -92,6 +117,11 @@
         <groupId>org.postgresql</groupId>
         <artifactId>postgresql</artifactId>
         <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+        <groupId>org.flywaydb</groupId>
+        <artifactId>flyway-core</artifactId>
     </dependency>
 </dependencies>
 

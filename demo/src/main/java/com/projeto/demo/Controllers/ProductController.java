@@ -1,4 +1,4 @@
-package com.projeto.demo;
+package com.projeto.demo.Controllers;
 
 public class ProductController {
 
